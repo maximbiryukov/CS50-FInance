@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote search
+{% endblock %}
+
+{% block main %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1 class="text-center", align="left">
+                Transaction history
+            </h1>
+        </div>
+        <div id="no-more-tables">
+            <table class="table table-hover", align="center">
+        		<thead>
+        			<tr>
+        				<th class="numeric">Buy transaction</th>
+        				<th class="numeric">ticker</th>
+        				<th class="numeric">Transaction price</th>
+        				<th class="numeric">Number bought/sold</th>
+        				<th class="numeric">Date and time</th>
+        			</tr>
+        		</thead>
+        		<tbody>
+        			{% for asset in ITEMS %}
+        			<tr>
+        				<td data-title="Asset">{{ asset[0] }}</td>
+        				<td data-title="Name">{{ asset[1] }}</td>
+        				<td data-title="Number owned" class="numeric">{{ asset[2] }}</td>
+        				<td data-title="Market price" class="numeric">{{ asset[3] }}</td>
+        				<td data-title="Asset value" class="numeric">{{ asset[4] }}</td>
+        			</tr>
+        			{% endfor %}
+        		</tbody>
+        	</table>
+        </div>
+    </div>
+{% endblock %}

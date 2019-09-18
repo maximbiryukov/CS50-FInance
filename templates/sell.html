@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote search
+{% endblock %}
+
+{% block main %}
+    <div class="form-group">
+        <form action="/sell" method="post">
+            <select class="form-control" name="symbol">
+            <option disabled selected value = "">What do you want to sell?</option>
+            {% for stock in STOCKS %}
+            <option value= {{ stock }} >{{ stock }}</option>
+            {% endfor %}
+            </select>
+            </div>
+        <div class="form-group">
+        <input class="form-control" autocomplete = "off", name = "shares" placeholder = "How many do you want to sell?", type = "text">
+        </div>
+        <div class="form-group">
+        <button class="btn btn-primary" type="submit">Sell</button>
+        </div>
+    </form>
+
+{% endblock %}
